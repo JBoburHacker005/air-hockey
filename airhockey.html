@@ -4,8 +4,8 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Air Hockey</title>
-<link rel="icon" type="image/png" href="air hockey.png">
-<link rel="apple-touch-icon" href="air hockey.png">
+<link rel="icon" type="image/png" href="air-hockey.png">
+<link rel="apple-touch-icon" href="air-hockey.png">
 <style>
     *{margin:0;padding:0;box-sizing:border-box}
     body{
@@ -120,7 +120,7 @@
 </head>
 <body>
 <div class="logo-container" id="logoContainer">
-    <img src="air hockey.png" alt="Air Hockey Logo" class="logo">
+    <img src="air-hockey.png" alt="Air Hockey Logo" class="logo">
 </div>
 <div class="menu-buttons left">
     <button class="menu-btn bot-mode" onclick="startGame('bot')">🤖 Bot bilan o'ynash</button>
@@ -321,6 +321,9 @@ class NeonAirHockey {
         const el=document.getElementById('gameOver');
         el.textContent=text;
         el.className='game-over show '+(isPlayer1?'player-wins':'ai-wins');
+        if(this.gameEnded){
+            document.getElementById('restartBtn').classList.remove('hidden');
+        }
     }
 
     resetGame(){
